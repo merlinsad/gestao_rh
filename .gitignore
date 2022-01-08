@@ -1,3 +1,6 @@
 .ideia
 *.sqlite3
 venv
+*.__pychace__
+*.pyc
+app/__pycache__/
