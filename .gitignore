@@ -4,3 +4,4 @@ venv
 *.__pychace__
 *.pyc
 app/__pycache__/
+.pyc
