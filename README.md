@@ -13,6 +13,7 @@ Using technologics:
 - Celery
 - Ajax
 - API Rest
+- SQLlite
 
 
 Status of project = 46%
