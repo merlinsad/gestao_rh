@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div class="d-flex justify-content-center">Banco de horas</div>
+<br>
+    {% for registro_re in object_list %}
+
+        <a href="{% url 'update_hora_extra' registro_re.id %}">
+            {{ registro_re }}
+        </a>
+    {% endfor %}
+
+    {% if not object_list %}
+        <div class="d-flex justify-content-center">
+            <h4>Não existem registros no banco de dados.</h4>
+        </div>
+    {% endif %}
+    <a href="{% url 'create_hora_extra' %}" class="btn btn-dark">Incluir Hora Extra</a>
+{% endblock %}

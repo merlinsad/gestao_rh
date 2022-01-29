@@ -2,20 +2,17 @@
 {% load bootstrap %}
 {% block main %}
 
-<div class="d-flex justify-content-center">Edit Funcionario</div>
+<div class="d-flex justify-content-center">Editar Funcionario</div>
 
 <form method="post" action>
 
     {% csrf_token %}
 
     {{ form|bootstrap }}
-
-    <button type="submit" class="btn">Salvar</button>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn">Salvar</button></div>
 </form>
-
-<a href="{% url 'create_documento' object.id %}" class="btn btn-main">
-    Adicionar documento</a>
-
+<a href="{% url 'create_documento' object.id %}" class="btn btn-dark">Adicionar documento</a><br>
 {% for documento in object.documento_set.all %}
     <br>
     <a href="{{ documento.arquivo.url }}"> {{ documento }} </a>

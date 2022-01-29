@@ -10,6 +10,7 @@ urlpatterns = [
     path('departamentos/', include('app.departamentos.urls')),
     path('empresa/', include('app.empresas.urls')),
     path('documentos/', include('app.documentos.urls')),
+    path('horas-extras/', include('app.registro_horas_extra.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

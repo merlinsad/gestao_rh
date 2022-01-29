@@ -1,6 +1,6 @@
 from django.http import HttpResponse
-from django.urls import reverse
-from django.views.generic import CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView, DeleteView
 
 from app.documentos.models import Documento
 
@@ -25,3 +25,9 @@ class DocumentoCreate(CreateView):
 
 class DocumentoEdit:
     pass
+
+
+class DocumentoDelete(DeleteView):
+    model = Documento
+    fields = ['descricao', 'arquivo']
+    success_url = reverse_lazy('list_funcionarios')
