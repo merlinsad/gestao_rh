@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
-
+{% load bootstrap %}
 {% block main %}
 
-Edit
+<div class="d-flex justify-content-center">Edit Funcionario</div>
 
 <form method="post" action>
+
     {% csrf_token %}
 
-    {{ form }}
+    {{ form|bootstrap }}
 
     <button type="submit" class="btn">Salvar</button>
 </form>
+
+<a href="{% url 'create_documento' object.id %}" class="btn btn-main">
+    Adicionar documento</a>
+
+{% for documento in object.documento_set.all %}
+    <br>
+    <a href="{{ documento.arquivo.url }}"> {{ documento }} </a>
+{% endfor %}
 {% endblock %}

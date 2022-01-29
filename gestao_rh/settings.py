@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'app.departamentos',
     'app.documentos',
     'app.registro_horas_extra',
-    'app.core'
+    'app.core',
+    'bootstrapform'
 ]
 
 MIDDLEWARE = [
@@ -97,6 +98,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock %}
+{% load bootstrap %}
 
 {% block main %}
     <div class="row">
         <div class="col-sm">
-            Teste
+            Home
         </div>
         <div class="col-sm">
-            Ola {{ usuario.funcionario.nome }}
-            <a href="{% url 'list_funcionarios' %}">Gerenciar funcionarios</a>
+            Ola {{ usuario.funcionario.nome }}<br>
+            <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a>
+            <br>
+            <a href="{% url 'list_departamentos' %}">Gerenciar Departamentos</a>
         </div>
         <div class="col-sm">
             <a href="{% url 'logout' %}">Logout</a>
 
             {% if usuario.funcionario.empresa %}
+                <br>
                 <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar empresa</a>
             {% else %}
+                <br>
                 <a href="{% url 'create_empresa' %}">Criar Empresa</a>
             {% endif%}
         </div>
