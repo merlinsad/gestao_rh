@@ -3,7 +3,10 @@
 {% block main %}
 
 <div class="d-flex justify-content-center">Editar Funcionario</div>
-
+    <div class="d-flex justify-content-end">
+        <a href="{% url 'home' %}" class="btn btn-dark">Voltar para página inicial</a>
+    </div>
+<br>
 <form method="post" action>
 
     {% csrf_token %}
@@ -12,9 +15,35 @@
     <div class="d-flex justify-content-end">
         <button type="submit" class="btn">Salvar</button></div>
 </form>
-<a href="{% url 'create_documento' object.id %}" class="btn btn-dark">Adicionar documento</a><br>
+{% if object %}
+<h2>Documentos</h2>
+<li>
 {% for documento in object.documento_set.all %}
-    <br>
-    <a href="{{ documento.arquivo.url }}"> {{ documento }} </a>
-{% endfor %}
+    <a href="{{ documento.arquivo.url }}">{{ documento }}</a><br>
+    {% endfor %}
+    </li>
+<br>
+
+<br><a href="{% url 'create_documento' object.id %}" class="btn btn-dark">
+    Adicionar documento</a><br>
+
+<h2>--------------------------------------------------------------------------------------</h2>
+<h2>Banco de horas</h2>
+<ul>
+    {% for registro_hora in object.registrohoraextra_set.all %}
+    <li>
+        <a href="{% url 'update_hora_extra' registro_hora.id%}">
+            {{ registro_hora.motivo }}
+        </a>
+        | {{ registro_hora.horas }}h
+    </li>
+    {% endfor %}
+</ul>
+
+<br><a href="{% url 'create_hora_extra' %}" class="btn btn-dark">
+    Adicionar hora extra</a><br>
+<br><h3>Total de horas extras de {{ object.nome }}: {{ object.total_horas_extra}} horas </h3>
+
+<h2>--------------------------------------------------------------------------------------</h2>
+{% endif %}
 {% endblock %}

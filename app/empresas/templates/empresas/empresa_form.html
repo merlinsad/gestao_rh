@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
 {% block main %}
+<br>
+<div class="d-flex justify-content-center">
+    <a href="{% url 'home' %}" class="btn btn-dark">Home</a>
+</div>
+
+<br>
 <form method="post">
     {% csrf_token %}
     {{ form|bootstrap }}
-<button type="submit">Salvar</button>
+<button type="submit" class="btn btn-dark">Salvar</button>
 </form>
+
 {% endblock %}

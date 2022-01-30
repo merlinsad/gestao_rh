@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum
 from django.urls import reverse
 
 from app.funcionarios.models import Funcionario
@@ -10,7 +11,9 @@ class RegistroHoraExtra(models.Model):
     horas = models.DecimalField(max_digits=5, decimal_places=2)
 
     def get_absolute_url(self):
-        return reverse('update_hora_extra', args=[self.id])
+        return reverse('update_funcionarios', args=[self.funcionario.id])
+
 
     def __str__(self):
         return self.motivo
+

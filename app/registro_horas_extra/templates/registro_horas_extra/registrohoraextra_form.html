@@ -3,16 +3,17 @@
 {% block main %}
 
 <div class="d-flex justify-content-center">Editar Banco de Horas</div>
+<a href="{% url 'home' %}" class="btn btn-dark">Voltar para página inicial</a>
+<br><br>
 
 <form method="post" action enctype="multipart/form-data">
 
     {% csrf_token %}
 
     {{ form|bootstrap }}
-<button type="submit" class="btn">Salvar</button>
+<button type="submit" class="btn btn-dark">Salvar</button>
     {% if object %}
 <a href="{% url 'delete_hora_extra' object.id %}" class="btn btn-danger">Deletar</a>
 </form>
     {% endif %}
-
 {% endblock %}

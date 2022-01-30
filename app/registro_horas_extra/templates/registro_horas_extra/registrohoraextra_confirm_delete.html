@@ -3,10 +3,11 @@
 {% block main %}
 
 <form method="post" enctype="multipart/form-data">
+    <br>
     {% csrf_token %}
-    <h1>Você quer deletar mesmo {{ obj }}?</h1>
+    <h2>Você quer deletar mesmo a hora extra:  {{ object }}?</h2>
     {{ form|bootstrap }}
-
+    <br>
     <button type="submit" class="btn btn-danger">Confirmar</button>
 </form>
 {% endblock %}

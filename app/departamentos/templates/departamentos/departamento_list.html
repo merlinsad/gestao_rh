@@ -5,26 +5,21 @@
 <br>
 <div class="row">
     <div class="col-sm">
-    <a href="{% url 'home' %}" class="btn btn-info">Home</a>
-</div>
-
-    <div class="col-sm">
-
-
-        <h5>List of Departaments</h5>
-    {% for departamento in object_list %}
-        <a href="{% url 'update_departamento' departamento.id %}">
-            {{ departamento }} </a>
-        <a href="{% url 'delete_departamento' departamento.id %}">
-            Deletar
-        </a>
-    <br>
-        {% endfor %}
-
-
+    <a href="{% url 'home' %}" class="btn btn-dark">Home</a>
+    <a href="{% url 'create_departamento' %}" class="btn btn-dark">Novo Departamento</a>
     </div>
-    <div class="col-sm"><a href="{% url 'create_departamento' %}" class="btn btn-info">Novo Departamento</a><br></div>
 </div>
+        <br>
+<div class="d-flex justify-content-center"><h5>Lista dos Departamentos</h5></div>
+<ul>
+    {% for departamento in object_list %}
+    <li>
+    <a href="{% url 'update_departamento' departamento.id %}"> {{ departamento }} </a>|
+    <a href="{% url 'delete_departamento' departamento.id %}">Deletar</a>
+    <br>
+    </li>
+        {% endfor %}
+</ul>
 
 
 

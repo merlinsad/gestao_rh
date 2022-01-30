@@ -5,7 +5,9 @@
     {% csrf_token %}
     {{ form|bootstrap }}
 <div class="d-flex justify-content-end">
-    <button type="submit">Adicionar</button>
+    <button type="submit" class="btn btn-dark">Adicionar</button>
 </div>
 </form>
+<br>
+<a href="{% url 'home' %}" class="btn btn-dark">Voltar para página inicial</a>
 {% endblock %}

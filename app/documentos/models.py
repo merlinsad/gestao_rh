@@ -5,6 +5,7 @@ from app.funcionarios.models import Funcionario
 
 
 # ForeignKey = Um funcionario pode ter vários documentos
+# FileField = Função para campo de arquivos
 # Create your models here.
 class Documento(models.Model):
     descricao = models.CharField(max_length=100)
