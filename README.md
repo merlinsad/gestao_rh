@@ -16,7 +16,7 @@ Using technologics:
 - SQLlite
 
 
-Status of project = 52%
+Status of project = 62%
 In progress....
 
 Day that i started this project:  10/01/2022
