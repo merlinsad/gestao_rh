@@ -2,13 +2,25 @@
 {% load bootstrap %}
 {% block main %}
 
-Edit
+<br>
+<div class="d-flex justify-content-center">INSERIR DEPARTAMENTO</div>
+<div class="row">
+    <div class="col-sm">
+        <div class="d-flex justify-content-start">
+            <a href="{% url 'home' %}" class="btn btn-dark">Home</a>
+        </div>
+    </div>
+</div>
 
+
+<br>
 <form method="post" action>
     {% csrf_token %}
 
     {{ form|bootstrap }}
 
-    <button type="submit" class="btn btn-dark">Salvar</button>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-dark">Salvar</button>
+    </div>
 </form>
 {% endblock %}

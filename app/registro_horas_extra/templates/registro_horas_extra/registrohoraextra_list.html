@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block main %}
+
     <div class="d-flex justify-content-center">Banco de horas</div>
 <div class="d-flex justify-content-start">
     <a href="{% url 'create_hora_extra' %}" class="btn btn-dark">Incluir Hora Extra</a>
@@ -8,13 +9,16 @@
 </div>
 <br>
     {% for registro_re in object_list %}
-
-        <a href="{% url 'update_hora_extra' registro_re.id %}">
-            {{ registro_re }}
-        </a>
+        Funcionário: <a href="{% url 'update_funcionarios' registro_re.id %}">
+            {{ registro_re.funcionario }}</a>
+        | Motivo:
+        <a href="{% url 'update_hora_extra' registro_re.id %}"> {{ registro_re }}</a> | {{ registro_re.horas }} horas
+    <br>
+    Total de horas acumulada pelo funcionário: {{ registro_re.funcionario.total_horas_extra }} horas
     <br>
     {% endfor %}
 
+    <br>
     {% if not object_list %}
         <div class="d-flex justify-content-center">
             <h4>Não existem registros no banco de dados.</h4>

@@ -13,7 +13,6 @@ class RegistroHoraExtra(models.Model):
     def get_absolute_url(self):
         return reverse('update_funcionarios', args=[self.funcionario.id])
 
-
     def __str__(self):
         return self.motivo
 
