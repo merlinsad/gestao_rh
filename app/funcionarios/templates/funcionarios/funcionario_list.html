@@ -15,7 +15,7 @@
     <li>
         {% for funcionario in object_list %}
         <a href="{% url 'update_funcionarios' funcionario.id %}">
-            {{ funcionario }} </a>|
+            {{ funcionario }} </a> |
         <a href="{% url 'delete_funcionarios' funcionario.id %}">
             Deletar funcinário
         </a>

@@ -1,32 +1,42 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock %}
 {% load bootstrap %}
-
 {% block main %}
-    <div class="row">
-        <div class="col-sm">
-            <div class="p-3 mb-2 bg-light text-dark">Home</div>
-            <br><br>
-            <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a>
-            <br>
-            <a href="{% url 'list_departamentos' %}">Gerenciar Departamentos</a>
-            <br>
-            <a href="{% url 'list_hora_extra' %}">Gerenciar Banco de Horas</a>
-        </div>
-        <div class="col-sm">
-            <div class="d-flex justify-content-center">Ola, {{ usuario.funcionario.nome }}.<br></div>
-        </div>
-        <div class="col-sm">
-            <a href="{% url 'logout' %}">Logout</a>
-
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'list_departamentos' %}">Gerenciar Funcionarios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'list_departamentos' %}">Gerenciar Departamentos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'list_hora_extra' %}">Gerenciar Banco de Horas</a>
+            </li>
             {% if usuario.funcionario.empresa %}
-                <br>
-                <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar empresa</a>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar empresa</a>
+            </li>
             {% else %}
-                <br>
-                <a href="{% url 'create_empresa' %}">Criar Empresa</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'create_empresa' %}">Criar Empresa</a>
+            </li>
             {% endif%}
-        </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light bg-dark">Ola, {{ usuario.funcionario.nome }}.</a>
+            </li>
+        </ul>
     </div>
+</nav>
 
 {% endblock %}
